@@ -1,0 +1,50 @@
+//controlling servo motors with two switches
+
+const int motpin1 = 11;
+const int motpin2 = 10;
+const int motpin3 = 7;
+const int motpin4 = 6;
+void setup()
+{
+  pinMode(motpin1,OUTPUT);
+  pinMode(motpin2,OUTPUT);
+  pinMode(3,INPUT_PULLUP);
+  pinMode(4,INPUT_PULLUP);
+  pinMode(motpin3,OUTPUT);
+  pinMode(motpin4,OUTPUT);
+}
+void loop()
+{
+  int switch1=digitalRead(4);
+  int switch2=digitalRead(3);
+  
+  if (switch2== 0)
+  {
+   digitalWrite(motpin1,HIGH);
+   digitalWrite(motpin2,LOW);
+   digitalWrite(motpin4,HIGH);
+   digitalWrite(motpin3,LOW);
+   }
+  else
+  {
+    digitalWrite(motpin1,LOW);
+    digitalWrite(motpin2,LOW);
+    digitalWrite(motpin3,LOW);
+    digitalWrite(motpin4,LOW);
+  }
+  
+  if (switch1== 0)
+  {
+    digitalWrite(motpin2,HIGH);
+    digitalWrite(motpin1,LOW);
+    digitalWrite(motpin3,HIGH);
+    digitalWrite(motpin4,LOW);
+  }
+  else
+  {
+    digitalWrite(motpin2,LOW);
+    digitalWrite(motpin1,LOW);
+    digitalWrite(motpin3,LOW);
+    digitalWrite(motpin4,LOW);
+  }
+}
